@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/styles.css" rel="stylesheet" />
+    <title>Radency Notes</title>
+  </head>
+  <body class="text-slate-800">
+    <main class="container py-10 space-y-10">
+      <table
+        class="w-full text-left border-separate table-auto border-spacing-y-2"
+      >
+        <thead>
+          <tr class="text-white bg-slate-600">
+            <th></th>
+            <th>Name</th>
+            <th>Created</th>
+            <th>Category</th>
+            <th>Content</th>
+            <th>Dates</th>
+            <th class="flex justify-end p-2">
+              <button class="btn">
+                <svg>
+                  <use href="./img/icons.svg#icon-add"></use>
+                </svg>
+              </button>
+              <button class="btn">
+                <svg>
+                  <use href="./img/icons.svg#icon-archive"></use>
+                </svg>
+              </button>
+              <button class="btn">
+                <svg>
+                  <use href="./img/icons.svg#icon-delete"></use>
+                </svg>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border bg-slate-200 text-slate-600">
+            <td class="flex p-2">
+              <div
+                class="inline-block w-10 h-10 p-2 text-white rounded-full bg-slate-500"
+              >
+                <svg>
+                  <use href="./img/icons.svg#icon-task"></use>
+                </svg>
+              </div>
+            </td>
+            <td class="font-semibold text-slate-600">Shopping list</td>
+            <td>April 20, 2021</td>
+            <td>Task</td>
+            <td>Tomatoes, bread</td>
+            <td></td>
+            <td class="text-right">
+              <button class="btn">
+                <svg>
+                  <use href="./img/icons.svg#icon-edit"></use>
+                </svg>
+              </button>
+              <button class="btn">
+                <svg>
+                  <use href="./img/icons.svg#icon-archive"></use>
+                </svg>
+              </button>
+              <button class="btn">
+                <svg>
+                  <use href="./img/icons.svg#icon-delete"></use>
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table
+        class="w-full text-left border-separate table-auto border-spacing-y-2"
+      >
+        <thead>
+          <tr class="text-white bg-slate-600">
+            <th></th>
+            <th class="py-3">Note category</th>
+            <th>Active</th>
+            <th>Archived</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border bg-slate-200 text-slate-600">
+            <td class="flex p-2">
+              <div
+                class="inline-block w-10 h-10 p-2 text-white rounded-full bg-slate-500"
+              >
+                <svg>
+                  <use href="./img/icons.svg#icon-task"></use>
+                </svg>
+              </div>
+            </td>
+            <td class="font-semibold text-slate-600">Task</td>
+            <td>13</td>
+            <td>4</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
