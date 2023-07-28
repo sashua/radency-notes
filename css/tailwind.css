@@ -6,6 +6,10 @@
   svg {
     @apply block w-full h-full fill-current;
   }
+
+  select {
+    @apply [-moz-appearance:none] [-webkit-appearance:none] [appearance:none];
+  }
 }
 
 @layer components {
