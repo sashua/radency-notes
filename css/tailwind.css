@@ -10,7 +10,7 @@
 
 @layer components {
   .button {
-    @apply w-8 h-8 p-1 transition-transform hover:scale-110 active:scale-105;
+    @apply w-8 h-8 p-0.5 transition-transform hover:scale-110 active:scale-105;
   }
 
   .closed {

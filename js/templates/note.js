@@ -22,12 +22,12 @@ export const noteTemplate = ({
     <p class="col-span-2 line-clamp-1">${category.name}</p>
     <p class="col-span-2 line-clamp-1">${content}</p>
     <p class="col-span-2 line-clamp-1">${getDates(content).join(", ")}</p>
-    <div class="flex justify-center col-span-1">
+    <div class="flex justify-end col-span-1">
       ${
         archived
           ? ""
           : `
-      <button class="button" data-type="notes/edit" data-payload="${id}">
+      <button class="button" data-type="editor/open" data-payload="${id}">
         <svg>
           <use href="./img/icons.svg#icon-edit"></use>
         </svg>

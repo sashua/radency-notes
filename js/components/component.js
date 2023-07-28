@@ -1,9 +1,11 @@
-export class TableComponent {
+export class Component {
   constructor({ rootSelector, store }) {
     this.store = store;
-    this.refs = this.getRefs(rootSelector);
+    this.refs = null;
+    this.setRefs(rootSelector);
     this.bindEvents();
     this.store.subscribe(this.render.bind(this));
+    this.render(this.store.state);
   }
 
   render() {
@@ -11,7 +13,7 @@ export class TableComponent {
   }
 
   handleClick(e) {
-    const button = e.target.closest("button");
+    const button = e.target.closest("button[data-type]");
     if (!button) return;
     this.store.dispatch({
       type: button.dataset.type,
@@ -23,11 +25,9 @@ export class TableComponent {
     this.refs.root.addEventListener("click", this.handleClick.bind(this));
   }
 
-  getRefs(rootSelector) {
-    const root = document.querySelector(rootSelector);
-    return {
-      root,
-      list: root.querySelector("ul"),
+  setRefs(rootSelector) {
+    this.refs = {
+      root: document.querySelector(rootSelector),
     };
   }
 }

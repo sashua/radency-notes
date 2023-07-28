@@ -3,10 +3,10 @@ export class Observable {
 
   subscribe(callback) {
     this.observers.push(callback);
-    return () =>
-      (this.observers = this.observers.filter(
-        (observer) => observer !== callback
-      ));
+  }
+
+  unsubscribe(callback) {
+    this.observers = this.observers.filter((observer) => observer !== callback);
   }
 
   notify(data) {

@@ -1,13 +1,13 @@
 export const categories = [
   {
     id: "1",
-    name: "Task",
-    icon: "/img/icons.svg#icon-task",
+    name: "Random Thought",
+    icon: "/img/icons.svg#icon-random",
   },
   {
     id: "2",
-    name: "Random Thought",
-    icon: "/img/icons.svg#icon-random",
+    name: "Task",
+    icon: "/img/icons.svg#icon-task",
   },
   {
     id: "3",

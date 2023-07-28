@@ -9,17 +9,23 @@ export const initialState = {
 };
 
 export function reducer(state, action) {
-  const { type, payload = null } = action;
+  const { type, payload } = action;
   switch (type) {
+    // ---- Notes ----
     case "notes/create": {
-      state.notes.push({ ...payload, id: getRandomId() });
+      state.notes.push({
+        ...payload,
+        id: getRandomId(),
+        createdAt: Date.now(),
+      });
       return { ...state, editorOpened: false, editingNoteId: null };
     }
 
     case "notes/edit": {
-      const { id, data } = payload;
-      const index = state.notes.findIndex((note) => note.id === id);
-      state.notes[index] = { ...state.notes[index], ...data };
+      const index = state.notes.findIndex(
+        (note) => note.id === state.editingNoteId
+      );
+      state.notes[index] = { ...state.notes[index], ...payload };
       return { ...state, editorOpened: false, editingNoteId: null };
     }
 
@@ -35,6 +41,13 @@ export function reducer(state, action) {
       return { ...state };
     }
 
+    case "notes/delete": {
+      const index = state.notes.findIndex((note) => note.id === payload);
+      state.notes.splice(index, 1);
+      return { ...state };
+    }
+
+    // ---- All Notes ----
     case "notes/archive-all": {
       state.notes.forEach((note) => (note.archived = true));
       return { ...state };
@@ -42,12 +55,6 @@ export function reducer(state, action) {
 
     case "notes/unarchive-all": {
       state.notes.forEach((note) => (note.archived = false));
-      return { ...state };
-    }
-
-    case "notes/delete": {
-      const index = state.notes.findIndex((note) => note.id === payload);
-      state.notes.splice(index, 1);
       return { ...state };
     }
 
@@ -65,6 +72,7 @@ export function reducer(state, action) {
       };
     }
 
+    // ---- Editor ----
     case "editor/open": {
       return { ...state, editorOpened: true, editingNoteId: payload };
     }
@@ -73,6 +81,7 @@ export function reducer(state, action) {
       return { ...state, editorOpened: false, editingNoteId: null };
     }
 
+    // ---- Archive ----
     case "archive/open": {
       return { ...state, archiveOpened: true };
     }
